@@ -16,6 +16,11 @@ void RhA::CGameManager::bodyGameplay(){
     terrain.generate(sf::Vector2i(30, 30));
 
      sf::Vector2f spawnPosition = sf::Vector2f(terrain.getSize().x*128/2, terrain.getSize().y*128/2);
+
+     RhA::CFogEmitter* fogEmitter = new RhA::CFogEmitter(RhA::CLoaderResources::get().getTexture("fog1"));
+     fogEmitter->addParticle(spawnPosition);
+
+
 /** DEBUG */
 
 
@@ -39,6 +44,7 @@ void RhA::CGameManager::bodyGameplay(){
             camera.setCenter(player.getPosition());
 
             terrain.update();
+            fogEmitter->update();
         }
 
 
@@ -49,8 +55,11 @@ void RhA::CGameManager::bodyGameplay(){
          window.draw(player);
 
          terrain.drawObjects(window);
+         fogEmitter->draw(window);
 
         window.setView(window.getDefaultView());
         window.display();
     }
+
+    delete fogEmitter;
 }

@@ -1,9 +1,9 @@
 #include "Object.hpp"
 
-void RhA::CObject::setPosition(sf::Vector2f position){
+void RhA::CObject::setPosition(sf::Vector2f position, int shadowDistance){
     sprite.setPosition(position);
 
-    shadow.setPosition(position.x+10, position.y+10);
+    shadow.setPosition(position.x+shadowDistance, position.y+shadowDistance);
 }
 void RhA::CObject::rotate(float angle){
     sprite.rotate(angle);
@@ -24,17 +24,28 @@ RhA::CTreeObject::CTreeObject(sf::Texture& texture, float rSpeed, bool isCollisi
     float random = ((rand()%6)+7);
     sprite.setScale(random/10, random/10);
 
-    float a = rand()%70;
-    float b = rand()%70;
-    float c = rand()%70;
-    sprite.setColor(sf::Color(255-a, 255-b, 255-c, 255));
+    float r = rand()%80;
+    float g = rand()%80;
+    float b = rand()%80;
+    sprite.setColor(sf::Color(255-r, 255-g, 255-b, 255));
 
     shadow = sprite;
     shadow.setColor(sf::Color(0, 0, 0, 125));
 }
 
 void RhA::CTreeObject::update(){
-    this->rotate(0.1f);
+    wind = 0.020 + float(rand()%10)/10000.0f;
 
-    //...
+    angle += 0.0010*std::cos(wind); ///Problem with std::cos(wind)
+    //std::cout << wind << " : " << 0.0010*std::cos(wind) << " : " << angle << std::endl;
+
+    this->rotate(0.1);
 }
+
+
+/*
+bool RhA::random(int interval, int max){
+    if((rand()%max)<interval) return true;
+     else return false;
+}
+*/

@@ -7,6 +7,8 @@
  #include "Character/Status.hpp"
  #include "Character/Player.hpp"
  #include "Terrain/Terrain.hpp"
+ #include "Effects/Particles/ParticleEmitter.hpp"
+ #include "Effects/Particles/ParticlesManager.hpp"
 
 
 namespace RhA{

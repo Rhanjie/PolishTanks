@@ -32,7 +32,8 @@ bool RhA::CLoaderResources::loadResources(){
     mTexturesNames["tankBody"] = 1;
     mTexturesNames["tankTurret"] = 1;
     mTexturesNames["terrain/grass"] = 7;
-    mTexturesNames["terrain/objects/tree"] = 1;
+    mTexturesNames["terrain/objects/tree"] = 3;
+    mTexturesNames["fog"] = 1;
 
 
     for(auto &it : mTexturesNames){
@@ -41,10 +42,12 @@ bool RhA::CLoaderResources::loadResources(){
 
             std::cout << " - " << prefix << it.first << helper << ".png" << std::endl;
 
-            if(!mTextures[it.first + helper].loadFromFile(prefix + it.first + helper + ".png"))
-             return false;
+            if(!mTextures[it.first + helper].loadFromFile(prefix + it.first + helper + ".png")){
+                return loaded; //false
+            }
         }
     }
 
-    return true;
+    loaded = true;
+    return loaded;
 }

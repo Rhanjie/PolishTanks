@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Hobby SFML" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Hobby SFML" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="sfml-graphics-d" />
+					<Add library="sfml-window-d" />
+					<Add library="sfml-system-d" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Hobby SFML" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="../SFML-2.4.2/include" />
+			<Add directory="RhA.Packet" />
+		</Compiler>
+		<Linker>
+			<Add directory="../SFML-2.4.2/lib" />
+		</Linker>
+		<Unit filename="RhA.Packet/Character/Player.cpp" />
+		<Unit filename="RhA.Packet/Character/Player.hpp" />
+		<Unit filename="RhA.Packet/Character/PlayerUpdate.cpp" />
+		<Unit filename="RhA.Packet/Character/Status.cpp" />
+		<Unit filename="RhA.Packet/Character/Status.hpp" />
+		<Unit filename="RhA.Packet/System/ConstStepLoop.cpp" />
+		<Unit filename="RhA.Packet/System/ConstStepLoop.hpp" />
+		<Unit filename="RhA.Packet/System/GameBody.cpp" />
+		<Unit filename="RhA.Packet/System/GameManager.cpp" />
+		<Unit filename="RhA.Packet/System/GameManager.hpp" />
+		<Unit filename="RhA.Packet/System/Helpful.hpp" />
+		<Unit filename="RhA.Packet/System/LibrariesIncluding.hpp" />
+		<Unit filename="RhA.Packet/System/LoaderTextures.cpp" />
+		<Unit filename="RhA.Packet/System/LoaderTextures.hpp" />
+		<Unit filename="RhA.Packet/System/main.cpp" />
+		<Unit filename="RhA.Packet/Terrain/Object.cpp" />
+		<Unit filename="RhA.Packet/Terrain/Object.hpp" />
+		<Unit filename="RhA.Packet/Terrain/ObjectManager.cpp" />
+		<Unit filename="RhA.Packet/Terrain/ObjectManager.hpp" />
+		<Unit filename="RhA.Packet/Terrain/Terrain.cpp" />
+		<Unit filename="RhA.Packet/Terrain/Terrain.hpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

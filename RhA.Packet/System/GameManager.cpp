@@ -9,7 +9,7 @@ RhA::CGameManager::CGameManager(std::string title, sf::Vector2i windowSize, sf::
     camera.setSize((sf::Vector2f) window.getSize());
 
     std::cout << "\n[O] Loading resources...\n";
-    if(RhA::CLoaderResources::get().isLoaded()){
+    if(!RhA::CLoaderResources::get().isLoaded()){
         std::cout << "[!] Resources can't be loaded!\n";
 
         gameplayType = END;
