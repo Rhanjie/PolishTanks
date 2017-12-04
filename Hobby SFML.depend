@@ -441,7 +441,7 @@
 1511864526 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\gamemanager.cpp
 	"GameManager.hpp"
 
-1511860529 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\gamemanager.hpp
+1512040807 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\gamemanager.hpp
 	"LibrariesIncluding.hpp"
 	"ConstStepLoop.hpp"
 	"LoaderTextures.hpp"
@@ -450,6 +450,7 @@
 	"Terrain/Terrain.hpp"
 	"Effects/Particles/ParticleEmitter.hpp"
 	"Effects/Particles/ParticlesManager.hpp"
+	"Effects/Particles/FogEmitter.hpp"
 
 1511784365 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\loadertextures.hpp
 	"LibrariesIncluding.hpp"
@@ -487,7 +488,7 @@
 	"System/Helpful.hpp"
 	"ObjectManager.hpp"
 
-1511864300 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\gamebody.cpp
+1512388637 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\gamebody.cpp
 	"GameManager.hpp"
 
 1508223655 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\helpful.hpp
@@ -525,12 +526,18 @@
 1511784402 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\terrain\objectmanager.cpp
 	"ObjectManager.hpp"
 
-1511863635 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\particleemitter.hpp
+1512040775 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\particleemitter.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/Helpful.hpp"
 	"ParticlesManager.hpp"
 
-1511864300 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\particlesmanager.hpp
+1512388168 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\particlesmanager.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/Helpful.hpp"
+
+1512388700 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\fogemitter.hpp
+	"System/LibrariesIncluding.hpp"
+	"System/Helpful.hpp"
+	"ParticlesManager.hpp"
+	"ParticleEmitter.hpp"
 

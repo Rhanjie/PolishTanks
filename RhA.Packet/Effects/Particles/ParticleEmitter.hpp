@@ -11,38 +11,19 @@ namespace RhA{
          virtual void update()=0;
          virtual void draw(sf::RenderTarget& target)=0;
 
+         inline int getAmount(){return pAmount;}
+         inline int getCurrAmount(){return vParticles.size();}
+
+         inline bool checkAmount(){
+            if(vParticles.size() < pAmount)
+                return true;
+            else return false;
+         }
+
         protected:
          sf::Texture texture;
-    };
+         int pAmount = 0;
 
-    class CFogEmitter: CParticleEmitter{
-        public:
-         CFogEmitter(sf::Texture& texture){
-            this->texture = texture;
-
-            //...
-         }
-
-         void addParticle(sf::Vector2f position){
-            vParticles.push_back(RhA::CParticle(texture, position));
-         }
-
-         void addParticles(int amount, sf::Vector2f position){
-            for(int i = 0; i < amount; ++i)
-                this->addParticle(position);
-         }
-
-         virtual void update(){
-            //...
-         }
-
-         virtual void draw(sf::RenderTarget& target){
-            for(int i = 0; i < vParticles.size(); ++i){
-                target.draw(vParticles[i].sprite);
-            }
-         }
-
-        private:
          std::vector<RhA::CParticle>vParticles;
     };
 }

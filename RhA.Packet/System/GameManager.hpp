@@ -9,6 +9,7 @@
  #include "Terrain/Terrain.hpp"
  #include "Effects/Particles/ParticleEmitter.hpp"
  #include "Effects/Particles/ParticlesManager.hpp"
+ #include "Effects/Particles/FogEmitter.hpp"
 
 
 namespace RhA{

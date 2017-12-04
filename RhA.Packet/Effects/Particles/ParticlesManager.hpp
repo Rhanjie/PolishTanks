@@ -9,10 +9,25 @@ namespace RhA{
         public:
          sf::Sprite sprite;
 
+         bool hiding = false;
+         int colorAlpha = 0;
+         float sRotate = 0.1;
+
+
          CParticle(sf::Texture& texture, sf::Vector2f position){
             sprite.setTexture(texture);
 
             sprite.setPosition(position);
+
+            float random = rand()%4 -2;
+            sRotate = random/20;
+         }
+
+         void changeAlpha(float speed){
+            if(hiding == false)
+                colorAlpha += speed;
+
+            else colorAlpha -= speed;
          }
 
         private:
