@@ -467,7 +467,7 @@
 1511177920 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\main.cpp
 	"GameManager.hpp"
 
-1510826144 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\character\player.cpp
+1513071893 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\character\player.cpp
 	"Player.hpp"
 
 1508220220 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\character\status.hpp
@@ -476,19 +476,19 @@
 1505981692 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\character\status.cpp
 	"Status.hpp"
 
-1508148096 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\character\playerupdate.cpp
+1513071977 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\character\playerupdate.cpp
 	"Player.hpp"
 
-1511858995 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\terrain\terrain.cpp
+1513070713 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\terrain\terrain.cpp
 	"Terrain.hpp"
 
-1510830818 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\terrain\terrain.hpp
+1512993653 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\terrain\terrain.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/LoaderTextures.hpp"
 	"System/Helpful.hpp"
 	"ObjectManager.hpp"
 
-1512388637 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\gamebody.cpp
+1513070994 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\gamebody.cpp
 	"GameManager.hpp"
 
 1508223655 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\system\helpful.hpp
@@ -509,7 +509,7 @@
 	"System/Helpful.hpp"
 	"Terrain/Objects/Object.hpp"
 
-1511860896 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\terrain\object.cpp
+1513069739 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\terrain\object.cpp
 	"Object.hpp"
 
 1511857955 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\terrain\object.hpp
@@ -531,13 +531,16 @@
 	"System/Helpful.hpp"
 	"ParticlesManager.hpp"
 
-1512388168 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\particlesmanager.hpp
+1513072229 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\particlesmanager.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/Helpful.hpp"
 
-1512388700 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\fogemitter.hpp
+1512467547 c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\fogemitter.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/Helpful.hpp"
 	"ParticlesManager.hpp"
 	"ParticleEmitter.hpp"
+
+1513071998 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\fogemitter.cpp
+	"FogEmitter.hpp"
 

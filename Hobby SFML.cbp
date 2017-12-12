@@ -48,6 +48,7 @@
 		<Unit filename="RhA.Packet/Character/PlayerUpdate.cpp" />
 		<Unit filename="RhA.Packet/Character/Status.cpp" />
 		<Unit filename="RhA.Packet/Character/Status.hpp" />
+		<Unit filename="RhA.Packet/Effects/Particles/FogEmitter.cpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/FogEmitter.hpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/ParticleEmitter.hpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/ParticlesManager.hpp" />

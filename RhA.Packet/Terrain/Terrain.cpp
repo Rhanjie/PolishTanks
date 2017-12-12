@@ -24,23 +24,41 @@ void RhA::CTerrain::generate(sf::Vector2i size){
     }
 
      sf::Sprite helper;
+    vTiles.resize(arrayID.size());
+
     for(int y = 0; y < arrayID.size(); ++y){
+        vTiles[y].resize(arrayID.size());
+
         for(int x = 0; x < arrayID[y].size(); ++x){
             helper.setTexture(RhA::CLoaderResources::get().getTexture(arrayID[y][x]));
             helper.setPosition(x*128, y*128);
 
-            vTiles.push_back(helper);
+            vTiles[y][x] = helper;
         }
     }
 }
 
-void RhA::CTerrain::update(){
+void RhA::CTerrain::update(sf::RenderTarget& target){
     manager.update();
+
+    fixPosition  = sf::Vector2i((target.getView().getCenter().x - target.getSize().x/2)/128, (target.getView().getCenter().y - target.getSize().y/2)/128);
+    fixPosition2 = sf::Vector2i((target.getView().getCenter().x + target.getSize().x/2+256)/128, (target.getView().getCenter().y + target.getSize().y/2+256)/128);
+
+    if(fixPosition.x <= 0) fixPosition.x = 0;
+    if(fixPosition.y <= 0) fixPosition.y = 0;
+
+    if(fixPosition2.x >= arrayID[0].size()) fixPosition2.x = arrayID[0].size();
+    if(fixPosition2.y >= arrayID.size()) fixPosition2.y = arrayID.size();
 }
 void RhA::CTerrain::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-    for(int i = 0; i < vTiles.size(); ++i)
-     target.draw(vTiles[i]);
+    for(int y = fixPosition.y; y < fixPosition2.y; ++y){
+        for(int x = fixPosition.x; x < fixPosition2.x; ++x){
+            target.draw(vTiles[y][x]);
+        }
+    }
 }
 void RhA::CTerrain::drawObjects(sf::RenderTarget& target){
+    //... performance
+
     target.draw(manager);
 }

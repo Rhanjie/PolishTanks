@@ -8,26 +8,28 @@ namespace RhA{
     class CParticle{
         public:
          sf::Sprite sprite;
-
          bool hiding = false;
-         int colorAlpha = 0;
-         float sRotate = 0.1;
+
+         float rotateSpeed = 0;
+         float colorSpeed = 0;
+         float colorAlpha = 0;
 
 
-         CParticle(sf::Texture& texture, sf::Vector2f position){
+         CParticle(sf::Texture& texture, sf::Vector2f position, float scale = 1, float rotateSpeed = 0){
             sprite.setTexture(texture);
 
             sprite.setPosition(position);
+            sprite.setScale(scale, scale);
 
-            float random = rand()%4 -2;
-            sRotate = random/20;
+            this->rotateSpeed = rotateSpeed;
+            this->colorSpeed = (float)((rand()%10)+5)/10;
          }
 
-         void changeAlpha(float speed){
+         void changeAlpha(){
             if(hiding == false)
-                colorAlpha += speed;
+                colorAlpha += colorSpeed;
 
-            else colorAlpha -= speed;
+            else colorAlpha -= colorSpeed;
          }
 
         private:

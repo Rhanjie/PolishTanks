@@ -9,7 +9,7 @@ namespace RhA{
     class CTerrain: public sf::Drawable{
         public:
          void generate(sf::Vector2i size);
-         void update();
+         void update(sf::RenderTarget& target);
          void drawObjects(sf::RenderTarget& target);
 
          inline sf::Vector2f getSize(){return sf::Vector2f(arrayID.size(), arrayID[0].size());}
@@ -18,9 +18,11 @@ namespace RhA{
          virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; //tiles
 
          std::vector<std::vector<std::string>>arrayID;
+         std::vector<std::vector<sf::Sprite>>vTiles;
 
-         std::vector<sf::Sprite>vTiles;
          RhA::CObjectManager manager;
+         sf::Vector2i fixPosition;
+         sf::Vector2i fixPosition2;
     };
 }
 

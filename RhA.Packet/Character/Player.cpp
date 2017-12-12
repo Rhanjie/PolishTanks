@@ -24,7 +24,7 @@ void RhA::CPlayer::create(sf::Vector2f position, float velMoving, float velRotat
     shadowTurret = spriteTurret;
     shadowTurret.setColor(sf::Color(0, 0, 0, 125));
 
-    bullet.setSize(sf::Vector2f(-1000, 3));
+    bullet.setSize(sf::Vector2f(-1000, 3)); //TODO: Change bullet system
 }
 
 void RhA::CPlayer::update(sf::Vector2f mousePosition){

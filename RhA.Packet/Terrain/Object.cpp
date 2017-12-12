@@ -23,9 +23,10 @@ RhA::CTreeObject::CTreeObject(sf::Texture& texture, float rSpeed, bool isCollisi
 
     float random = ((rand()%6)+7);
     sprite.setScale(random/10, random/10);
+    sprite.setRotation(rand()%360);
 
     float r = rand()%80;
-    float g = rand()%80;
+    float g = rand()%80; //255
     float b = rand()%80;
     sprite.setColor(sf::Color(255-r, 255-g, 255-b, 255));
 
@@ -34,18 +35,8 @@ RhA::CTreeObject::CTreeObject(sf::Texture& texture, float rSpeed, bool isCollisi
 }
 
 void RhA::CTreeObject::update(){
-    wind = 0.020 + float(rand()%10)/10000.0f;
+    wind  += 0.015 + float(rand()%10)/10000.0f;
+    angle += 0.001 * std::cos(wind);
 
-    angle += 0.0010*std::cos(wind); ///Problem with std::cos(wind)
-    //std::cout << wind << " : " << 0.0010*std::cos(wind) << " : " << angle << std::endl;
-
-    this->rotate(0.1);
+    this->rotate(angle);
 }
-
-
-/*
-bool RhA::random(int interval, int max){
-    if((rand()%max)<interval) return true;
-     else return false;
-}
-*/
