@@ -1,64 +1,72 @@
 #include "Terrain.hpp"
 
-void RhA::CTerrain::generate(sf::Vector2i size){
-    arrayID.resize(size.y);
-    for(int y = 0; y < arrayID.size(); ++y)
-     arrayID[y].resize(size.x);
+void RhA::CTerrain::generate(sf::RenderTarget& target, sf::Vector2i size, int textureSize){
+    this->textureSize = textureSize;
 
+    arrayID.resize(size.y);
+    vTiles.resize(arrayID.size());
+
+    for(int y = 0; y < arrayID.size(); ++y){
+        arrayID[y].resize(size.x);
+
+        vTiles[y].resize(arrayID.size());
+    }
+
+     sf::Sprite helper;
      std::string path = "";
     for(int y = 0; y < arrayID.size(); ++y){
         for(int x = 0; x < arrayID[y].size(); ++x){
             arrayID[y][x] = "terrain/grass" + RhA::toString((rand()%7)+1);
 
-            float random = rand()%100;
+            helper.setTexture(RhA::CLoaderResources::get().getTexture(arrayID[y][x]));
+            helper.setPosition(x*textureSize, y*textureSize);
 
+            vTiles[y][x] = helper;
+
+
+            float random = rand()%100;
             //if(y < arrayID.size()/2 && x < arrayID[y].size()/2){
-                path = "terrain/objects/tree" + RhA::toString((rand()%3)+1); //TODO: Problem with performance
+                path = "terrain/objects/tree" + RhA::toString((rand()%3)+1);
 
                 if(random < 40){
                     manager.addObject(new RhA::CTreeObject(RhA::CLoaderResources::get().getTexture(path), 2.0f, true));
-                    manager.getLastObject()->setPosition(sf::Vector2f(x*170, y*170));
+                    manager.getLastObject()->setPosition(sf::Vector2f(x*170 + rand()%60-30, y*170 + rand()%50-20));
                 }
             //}
-        }
-    }
-
-     sf::Sprite helper;
-    vTiles.resize(arrayID.size());
-
-    for(int y = 0; y < arrayID.size(); ++y){
-        vTiles[y].resize(arrayID.size());
-
-        for(int x = 0; x < arrayID[y].size(); ++x){
-            helper.setTexture(RhA::CLoaderResources::get().getTexture(arrayID[y][x]));
-            helper.setPosition(x*128, y*128);
-
-            vTiles[y][x] = helper;
         }
     }
 }
 
 void RhA::CTerrain::update(sf::RenderTarget& target){
-    manager.update();
+    visibleArea.left   = (target.getView().getCenter().x - (target.getView().getSize()).x / 2) / textureSize;
+    visibleArea.top    = (target.getView().getCenter().y - (target.getView().getSize()).y / 2) / textureSize;
 
-    fixPosition  = sf::Vector2i((target.getView().getCenter().x - target.getSize().x/2)/128, (target.getView().getCenter().y - target.getSize().y/2)/128);
-    fixPosition2 = sf::Vector2i((target.getView().getCenter().x + target.getSize().x/2+256)/128, (target.getView().getCenter().y + target.getSize().y/2+256)/128);
+    visibleArea.width  = (target.getView().getSize()).x / textureSize;
+    visibleArea.height = (target.getView().getSize()).y / textureSize;
 
-    if(fixPosition.x <= 0) fixPosition.x = 0;
-    if(fixPosition.y <= 0) fixPosition.y = 0;
+    if(visibleArea.left <= 0) visibleArea.left = 0;
+    if(visibleArea.top <= 0) visibleArea.top = 0;
 
-    if(fixPosition2.x >= arrayID[0].size()) fixPosition2.x = arrayID[0].size();
-    if(fixPosition2.y >= arrayID.size()) fixPosition2.y = arrayID.size();
+    if(visibleArea.left > arrayID[0].size() - visibleArea.width)
+        visibleArea.left = arrayID[0].size() - visibleArea.width;
+
+    if(visibleArea.top > arrayID.size() - visibleArea.height)
+        visibleArea.top = arrayID.size() - visibleArea.height;
+
+    manager.update(visibleArea);
 }
 void RhA::CTerrain::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-    for(int y = fixPosition.y; y < fixPosition2.y; ++y){
-        for(int x = fixPosition.x; x < fixPosition2.x; ++x){
+    for(int y = visibleArea.top; y < visibleArea.top + visibleArea.height; ++y){
+        for(int x = visibleArea.left; x < visibleArea.left + visibleArea.width; ++x){
             target.draw(vTiles[y][x]);
         }
     }
 }
 void RhA::CTerrain::drawObjects(sf::RenderTarget& target){
-    //... performance
+    manager.draw(target);
+}
 
-    target.draw(manager);
+
+void RhA::CTerrain::checkCollision(sf::FloatRect collisionBox){
+    manager.checkCollision(collisionBox);
 }

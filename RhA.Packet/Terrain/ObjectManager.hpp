@@ -8,18 +8,21 @@
 #include "Terrain/Object.hpp"
 
 namespace RhA{
-    class CObjectManager: public sf::Drawable{
+    class CObjectManager{
         public:
          void addObject(RhA::CObject* object);
-         void update();
+         void update(sf::FloatRect visibleArea);
+         void draw(sf::RenderTarget& target);
+
+         void checkCollision(sf::FloatRect collisionBox);
 
          inline RhA::CObject* getLastObject(){
             return vObjects[vObjects.size()-1];
          }
-        private:
-         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
+        private:
          std::vector<RhA::CObject*>vObjects;
+         sf::FloatRect visibleArea;
     };
 }
 

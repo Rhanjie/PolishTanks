@@ -19,14 +19,14 @@ void RhA::CObject::draw(sf::RenderTarget& target, bool main) const{
 
 RhA::CTreeObject::CTreeObject(sf::Texture& texture, float rSpeed, bool isCollision){
     sprite.setTexture(texture);
-    sprite.setOrigin(sf::Vector2f(sprite.getTexture()->getSize().x/2, sprite.getTexture()->getSize().y/2));
+    sprite.setOrigin(sf::Vector2f(sprite.getTexture()->getSize().x/2-50, sprite.getTexture()->getSize().y/2-30));
 
     float random = ((rand()%6)+7);
     sprite.setScale(random/10, random/10);
     sprite.setRotation(rand()%360);
 
     float r = rand()%80;
-    float g = rand()%80; //255
+    float g = rand()%80;
     float b = rand()%80;
     sprite.setColor(sf::Color(255-r, 255-g, 255-b, 255));
 
@@ -36,7 +36,7 @@ RhA::CTreeObject::CTreeObject(sf::Texture& texture, float rSpeed, bool isCollisi
 
 void RhA::CTreeObject::update(){
     wind  += 0.015 + float(rand()%10)/10000.0f;
-    angle += 0.001 * std::cos(wind);
+    angle += 0.0007 * std::cos(wind); //0.001
 
     this->rotate(angle);
 }

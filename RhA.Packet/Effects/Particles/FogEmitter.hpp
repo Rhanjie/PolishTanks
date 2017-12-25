@@ -10,6 +10,7 @@ namespace RhA{
     class CFogEmitter: public CParticleEmitter{
         public:
          CFogEmitter(sf::Texture& texture, int pAmount);
+         ~CFogEmitter();
 
          void addParticle(sf::Vector2f position);
          void addParticles(int amount, sf::Vector2f position);

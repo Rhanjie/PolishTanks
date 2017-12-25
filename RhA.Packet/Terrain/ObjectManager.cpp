@@ -4,15 +4,40 @@ void RhA::CObjectManager::addObject(RhA::CObject* object){
     vObjects.push_back(object);
 }
 
-void RhA::CObjectManager::update(){
-    for(int i = 0; i < vObjects.size(); ++i)
-     vObjects[i]->update();
+void RhA::CObjectManager::update(sf::FloatRect visibleArea){
+    visibleArea.left *= 128;
+    visibleArea.top *= 128;
+
+    visibleArea.width *= 128;
+    visibleArea.height *= 128;
+
+    this->visibleArea = visibleArea;
+
+    for(int i = 0; i < vObjects.size(); ++i){
+        if(vObjects[i]->sprite.getGlobalBounds().intersects(this->visibleArea))
+            vObjects[i]->update();
+    }
 }
 
-void RhA::CObjectManager::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-    for(int i = 0; i < vObjects.size(); ++i)
-     vObjects[i]->draw(target, false);
+void RhA::CObjectManager::draw(sf::RenderTarget& target){
+    for(int i = 0; i < vObjects.size(); ++i){
+        if(vObjects[i]->sprite.getGlobalBounds().intersects(visibleArea)){
+            vObjects[i]->draw(target, false);
 
-    for(int i = 0; i < vObjects.size(); ++i)
-     vObjects[i]->draw(target, true);
+            vObjects[i]->draw(target, true);
+        }
+    }
+}
+
+void RhA::CObjectManager::checkCollision(sf::FloatRect collisionBox){
+    for(int i = 0; i < vObjects.size(); ++i){
+        if(vObjects[i]->sprite.getGlobalBounds().intersects(visibleArea)){
+            if(collisionBox.intersects(vObjects[i]->sprite.getGlobalBounds())){
+                std::cout << i << ") COLLISION!\n";
+
+                vObjects.erase(vObjects.begin()+i);
+                i--;
+            }
+        }
+    }
 }

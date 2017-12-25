@@ -12,13 +12,13 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-std=c++11" />
+					<Add option="-std=c++14" />
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="sfml-graphics-d" />
-					<Add library="sfml-window-d" />
-					<Add library="sfml-system-d" />
+					<Add library="../../SFML-2.4.2 cb/lib/libsfml-graphics-d.a" />
+					<Add library="../../SFML-2.4.2 cb/lib/libsfml-system-d.a" />
+					<Add library="../../SFML-2.4.2 cb/lib/libsfml-window-d.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -36,18 +36,21 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c++14" />
 			<Add option="-fexceptions" />
-			<Add directory="../SFML-2.4.2/include" />
+			<Add directory="../../SFML-2.4.2 cb/include" />
 			<Add directory="RhA.Packet" />
 		</Compiler>
 		<Linker>
-			<Add directory="../SFML-2.4.2/lib" />
+			<Add directory="../../SFML-2.4.2 cb/lib" />
 		</Linker>
 		<Unit filename="RhA.Packet/Character/Player.cpp" />
 		<Unit filename="RhA.Packet/Character/Player.hpp" />
 		<Unit filename="RhA.Packet/Character/PlayerUpdate.cpp" />
 		<Unit filename="RhA.Packet/Character/Status.cpp" />
 		<Unit filename="RhA.Packet/Character/Status.hpp" />
+		<Unit filename="RhA.Packet/Character/TankModules/Turret.cpp" />
+		<Unit filename="RhA.Packet/Character/TankModules/Turret.hpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/FogEmitter.cpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/FogEmitter.hpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/ParticleEmitter.hpp" />

@@ -8,7 +8,9 @@
 namespace RhA{
     class CTerrain: public sf::Drawable{
         public:
-         void generate(sf::Vector2i size);
+         void generate(sf::RenderTarget& target, sf::Vector2i size, int textureSize);
+         void checkCollision(sf::FloatRect collisionBox);
+
          void update(sf::RenderTarget& target);
          void drawObjects(sf::RenderTarget& target);
 
@@ -21,8 +23,8 @@ namespace RhA{
          std::vector<std::vector<sf::Sprite>>vTiles;
 
          RhA::CObjectManager manager;
-         sf::Vector2i fixPosition;
-         sf::Vector2i fixPosition2;
+         sf::FloatRect visibleArea;
+         int textureSize;
     };
 }
 

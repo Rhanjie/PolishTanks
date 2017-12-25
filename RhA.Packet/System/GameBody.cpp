@@ -7,14 +7,16 @@ void RhA::CGameManager::bodyMenu(){
 }
 
 void RhA::CGameManager::bodyGameplay(){
+    const int TEXTURE_SIZE = 128;
+
     RhA::CTerrain terrain;
-     terrain.generate(sf::Vector2i(30, 30));
+     terrain.generate(window, sf::Vector2i(200, 200), TEXTURE_SIZE);
 
     //TODO: Add shop with tank modules
     sf::Texture body = RhA::CLoaderResources::get().getTexture("tankBody1");
     sf::Texture turret = RhA::CLoaderResources::get().getTexture("tankTurret1");
 
-    sf::Vector2f spawnPosition = sf::Vector2f(terrain.getSize().x*128/2, terrain.getSize().y*128/2);
+    sf::Vector2f spawnPosition = sf::Vector2f(terrain.getSize().x*TEXTURE_SIZE/2, terrain.getSize().y*TEXTURE_SIZE/2);
 
     RhA::CPlayer player;
      player.create(spawnPosition, 3.0f, 1.0f, body, turret);
@@ -26,8 +28,9 @@ void RhA::CGameManager::bodyGameplay(){
     fogEffect.setFillColor(sf::Color(255, 255, 255, 75));
 
     sf::Vector2f fogSpawnPos = sf::Vector2f(0.0F, 0.0F);
-    RhA::CFogEmitter* fogEmitter = new RhA::CFogEmitter(RhA::CLoaderResources::get().getTexture("fog1"), 60);
+    RhA::CFogEmitter fogEmitter = RhA::CFogEmitter(RhA::CLoaderResources::get().getTexture("fog1"), 60); //TODO: Improve fog system when camera_scale > 1.0
 
+    //camera.zoom(1.2);
 
     sf::Vector2f mousePosition;
     while(gameplayType == GAME){
@@ -37,36 +40,41 @@ void RhA::CGameManager::bodyGameplay(){
                  gameplayType = END;
             }
 
-            window.setView(this->camera);
+            if(gameplayType == END) //DEBUG
+                break;
 
-            mousePosition = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-            terrain.update(window);
+            window.setView(camera);{
+                mousePosition = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                terrain.update(window);
 
-            window.setView(window.getDefaultView());
+                if(fogEmitter.checkAmount()){
+                    fogSpawnPos = sf::Vector2f(
+                        player.getPosition().x + (rand()%(int)((window.getView()).getSize().x * 2)) - (window.getView()).getSize().x,
+                        player.getPosition().y + (rand()%(int)((window.getView()).getSize().x * 2)) - (window.getView()).getSize().y
+                    );
 
-            if(fogEmitter->checkAmount()){
-                fogSpawnPos = sf::Vector2f(
-                    player.getPosition().x + (rand()%2024) - 1024,
-                    player.getPosition().y + (rand()%1536) - 768
-                );
+                    fogEmitter.addParticle(fogSpawnPos);
+                }
 
-                fogEmitter->addParticle(fogSpawnPos);
+
+                //terrain.checkCollision(player.turret.getCollisionBox()); //Only debug code, will be fixed in next commit
             }
+            window.setView(window.getDefaultView());
 
             player.update(mousePosition);
             camera.setCenter(player.getPosition());
-            fogEmitter->update();
+            fogEmitter.update();
 
 
             { /**Draw all objects**/
                 window.clear();
-                window.setView(this->camera);
+                window.setView(camera);
 
                  window.draw(terrain);
                  window.draw(player);
 
                  terrain.drawObjects(window);
-                 fogEmitter->draw(window);
+                 fogEmitter.draw(window);
 
                 window.setView(window.getDefaultView());
 
@@ -75,6 +83,4 @@ void RhA::CGameManager::bodyGameplay(){
             }
         }
     }
-
-    delete fogEmitter;
 }
