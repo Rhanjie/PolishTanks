@@ -3,10 +3,10 @@
 
 #include <iostream>
 #include <fstream>
-#include <cmath>
-#include <map>
 
 #include <cstdio>
+#include <cmath>
+#include <map>
 
 #include <SFML/Graphics.hpp>
 

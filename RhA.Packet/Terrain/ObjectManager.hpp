@@ -11,7 +11,7 @@ namespace RhA{
     class CObjectManager{
         public:
          void addObject(RhA::CObject* object);
-         void update(sf::FloatRect visibleArea);
+         void update(sf::FloatRect visibleArea, float dt);
          void draw(sf::RenderTarget& target);
 
          void checkCollision(sf::FloatRect collisionBox);

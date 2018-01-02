@@ -6,6 +6,8 @@ RhA::CGameManager::CGameManager(std::string title, sf::Vector2i windowSize, sf::
     std::cout << "[O] Initialization...\n";
 
     window.create(sf::VideoMode(windowSize.x, windowSize.y), title, sf::Style::Default, settings);
+    //window.setFramerateLimit(60);
+
     camera.setSize((sf::Vector2f) window.getSize());
 
     std::cout << "\n[O] Loading resources...\n";
@@ -18,7 +20,6 @@ RhA::CGameManager::CGameManager(std::string title, sf::Vector2i windowSize, sf::
 
     std::cout << "[O] Game created.\n";
 
-    constLoop.setFps(FPS);
     gameplayType = MENU;
 }
 

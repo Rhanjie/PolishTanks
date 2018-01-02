@@ -2,7 +2,7 @@
 #define GAMEMANAGER_HPP_INCLUDED
 
 #include "LibrariesIncluding.hpp"
- #include "ConstStepLoop.hpp"
+ #include "TimeManager.hpp"
  #include "LoaderTextures.hpp"
  #include "Character/Status.hpp"
  #include "Character/Player.hpp"
@@ -27,7 +27,7 @@ namespace RhA{
          sf::Event event;
          sf::View camera;
 
-         RhA::CConstLoop constLoop;
+         RhA::CTimeManager timeManager;
 
          void bodyMenu();
          void bodyGameplay();

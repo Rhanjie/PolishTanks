@@ -25,11 +25,11 @@ namespace RhA{
             this->colorSpeed = (float)((rand()%10)+5)/10;
          }
 
-         void changeAlpha(){
+         void changeAlpha(float dt){
             if(hiding == false)
-                colorAlpha += colorSpeed;
+                colorAlpha += colorSpeed * (dt * 100);
 
-            else colorAlpha -= colorSpeed;
+            else colorAlpha -= colorSpeed * (dt * 100);
          }
 
         private:

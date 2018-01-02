@@ -1,7 +1,9 @@
 #include "Turret.hpp"
 #define M_PI 3.14159265359
 
-void RhA::CTurret::init(sf::Vector2f position, sf::Texture& texture){
+void RhA::CTurret::init(sf::Vector2f position, sf::Time reloadTime, sf::Texture& texture){
+    this->reloadTime = reloadTime;
+
     sprite.setTexture(texture);
     sprite.setPosition(position.x, position.y);
     sprite.setOrigin(sprite.getTexture()->getSize().x/2, sprite.getTexture()->getSize().y/2);
@@ -9,48 +11,30 @@ void RhA::CTurret::init(sf::Vector2f position, sf::Texture& texture){
 
     shadow = sprite;
     shadow.setColor(sf::Color(0, 0, 0, 125));
-
-
-    bullet.setSize(sf::Vector2f(100, 4));
-    bullet.setOrigin(-sprite.getGlobalBounds().width/2, 2); //-Gun length, gun width
-
-    bullet.setTexture(&RhA::CLoaderResources::get().getTexture("bullet1"));
 }
 
 void RhA::CTurret::shoot(sf::Mouse::Button button){
-    float velX =  sin(((bullet.getRotation() + 90) * M_PI) / 180.0f);
-    float velY = -cos(((bullet.getRotation() + 90) * M_PI) / 180.0f);
-
     if(sf::Mouse::isButtonPressed(button)){
         if(!isShooting){
             isShooting = true;
 
-            bullet.setPosition(sprite.getPosition());
-            bullet.setRotation(sprite.getRotation());
+            vBullets.push_back(sf::RectangleShape());
+            vBullets[vBullets.size()-1].setPosition(sprite.getPosition());
+            vBullets[vBullets.size()-1].setRotation(sprite.getRotation());
+            vBullets[vBullets.size()-1].setSize(sf::Vector2f(100, 4));
 
-            bullet.setFillColor(sf::Color(255, 255, 255, 255));
+            vBullets[vBullets.size()-1].setOrigin(-sprite.getGlobalBounds().width/2, 2); //-Gun length, gun width
+            vBullets[vBullets.size()-1].setTexture(&RhA::CLoaderResources::get().getTexture("bullet1"));
+            vBullets[vBullets.size()-1].setFillColor(sf::Color(255, 255, 255, 255));
 
-            timer = 0;
-        }
-    }
-
-    if(isShooting){
-        timer++;
-
-        bullet.setSize(sf::Vector2f(bullet.getSize().x + timer, 4));
-        bullet.move(velX * bulletSpeed, velY * bulletSpeed);
-
-        if(timer >= 30){
-            bullet.setFillColor(sf::Color(255, 255, 255, 0));
-            bullet.setSize(sf::Vector2f(50, 4));
-
-            isShooting = false;
-            timer = 0;
+            clock.restart();
         }
     }
 }
 
-void RhA::CTurret::update(sf::Vector2f position, sf::Vector2f mousePosition){
+void RhA::CTurret::update(sf::Vector2f position, sf::Vector2f mousePosition, float dt){
+    float velX = 0, velY = 0; int todohelper = 500;
+
     direction = mousePosition - sprite.getPosition();
 
     sprite.setRotation(atan2(direction.y, direction.x) * 180 / M_PI);
@@ -58,16 +42,37 @@ void RhA::CTurret::update(sf::Vector2f position, sf::Vector2f mousePosition){
 
     sprite.setPosition(position.x, position.y);
     shadow.setPosition(position.x + 3, position.y + 3);
+
+    for(auto bullet = vBullets.begin(); bullet != vBullets.end();){
+        velX =  sin(((bullet->getRotation() + 90) * M_PI) / 180.0f);
+        velY = -cos(((bullet->getRotation() + 90) * M_PI) / 180.0f);
+
+        bullet->setSize(sf::Vector2f((bullet->getSize()).x + 1, 4));
+        bullet->move(velX * bulletSpeed  * (dt * 100), velY * bulletSpeed  * (dt * 100));
+
+        if(bullet->getPosition().x - sprite.getPosition().x <= -todohelper || bullet->getPosition().x - sprite.getPosition().x >= todohelper
+            || bullet->getPosition().y - sprite.getPosition().y <= -todohelper || bullet->getPosition().y - sprite.getPosition().y >= todohelper)
+            bullet = vBullets.erase(bullet);
+        else ++bullet;
+    }
+
+    if(isShooting && clock.getElapsedTime() >= reloadTime){
+        isShooting = false;
+
+        clock.restart();
+    }
 }
 
 void RhA::CTurret::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-    target.draw(bullet);
+    for(auto &bullet: vBullets)
+        target.draw(bullet);
 
     target.draw(shadow);
     target.draw(sprite);
 }
 
 sf::FloatRect RhA::CTurret::getCollisionBox(){
-    return bullet.getGlobalBounds();
+    //return bullet.getGlobalBounds();
+    return vBullets[vBullets.size()-1].getGlobalBounds(); //TODO
 }
 

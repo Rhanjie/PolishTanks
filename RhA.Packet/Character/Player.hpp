@@ -11,13 +11,13 @@ namespace RhA{
         public:
          void create(sf::Vector2f position, float maxSpeed, float velRotation, sf::Texture& textureBody, sf::Texture& textureTurret);
 
-         void update(sf::Vector2f mousePosition);
+         void update(sf::Vector2f mousePosition, float dt);
          void render(sf::RenderTarget& target);
 
          inline sf::Vector2f getPosition(){return spriteBody.getPosition();}
 
         private:
-         void serveMoving(); //TODO: Delete
+         void serveMoving(float dt); //TODO: Delete
          virtual void draw(sf::RenderTarget& target, sf::RenderStates stated) const;
 
          sf::Sprite spriteBody;

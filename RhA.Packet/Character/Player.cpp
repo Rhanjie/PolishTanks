@@ -13,14 +13,14 @@ void RhA::CPlayer::create(sf::Vector2f position, float maxSpeed, float velRotati
     shadowBody = spriteBody;
     shadowBody.setColor(sf::Color(0, 0, 0, 125));
 
-    turret.init(position, textureTurret);
+    turret.init(position, sf::seconds(1), textureTurret);
 }
 
-void RhA::CPlayer::update(sf::Vector2f mousePosition){
-    this->serveMoving();
+void RhA::CPlayer::update(sf::Vector2f mousePosition, float dt){
+    this->serveMoving(dt);
 
-    turret.update(spriteBody.getPosition(), mousePosition);
     turret.shoot(sf::Mouse::Left);
+    turret.update(spriteBody.getPosition(), mousePosition, dt);
 }
 
 void RhA::CPlayer::draw(sf::RenderTarget& target, sf::RenderStates stated) const{

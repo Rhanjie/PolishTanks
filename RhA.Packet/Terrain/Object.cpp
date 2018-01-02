@@ -34,9 +34,9 @@ RhA::CTreeObject::CTreeObject(sf::Texture& texture, float rSpeed, bool isCollisi
     shadow.setColor(sf::Color(0, 0, 0, 125));
 }
 
-void RhA::CTreeObject::update(){
-    wind  += 0.015 + float(rand()%10)/10000.0f;
-    angle += 0.0007 * std::cos(wind); //0.001
+void RhA::CTreeObject::update(float dt){
+    wind  += (0.015 + float(rand()%10)/10000.0f) * (dt * 100);
+    angle += 0.0007 * std::cos(wind) * (dt * 100); //0.001
 
-    this->rotate(angle);
+    this->rotate(angle * (dt * 100));
 }

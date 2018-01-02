@@ -4,7 +4,7 @@ void RhA::CObjectManager::addObject(RhA::CObject* object){
     vObjects.push_back(object);
 }
 
-void RhA::CObjectManager::update(sf::FloatRect visibleArea){
+void RhA::CObjectManager::update(sf::FloatRect visibleArea, float dt){
     visibleArea.left *= 128;
     visibleArea.top *= 128;
 
@@ -15,7 +15,7 @@ void RhA::CObjectManager::update(sf::FloatRect visibleArea){
 
     for(int i = 0; i < vObjects.size(); ++i){
         if(vObjects[i]->sprite.getGlobalBounds().intersects(this->visibleArea))
-            vObjects[i]->update();
+            vObjects[i]->update(dt);
     }
 }
 
@@ -33,9 +33,9 @@ void RhA::CObjectManager::checkCollision(sf::FloatRect collisionBox){
     for(int i = 0; i < vObjects.size(); ++i){
         if(vObjects[i]->sprite.getGlobalBounds().intersects(visibleArea)){
             if(collisionBox.intersects(vObjects[i]->sprite.getGlobalBounds())){
-                std::cout << i << ") COLLISION!\n";
-
                 vObjects.erase(vObjects.begin()+i);
+                //...
+
                 i--;
             }
         }

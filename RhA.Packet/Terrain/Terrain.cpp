@@ -37,10 +37,9 @@ void RhA::CTerrain::generate(sf::RenderTarget& target, sf::Vector2i size, int te
     }
 }
 
-void RhA::CTerrain::update(sf::RenderTarget& target){
+void RhA::CTerrain::update(sf::RenderTarget& target, float dt){
     visibleArea.left   = (target.getView().getCenter().x - (target.getView().getSize()).x / 2) / textureSize;
     visibleArea.top    = (target.getView().getCenter().y - (target.getView().getSize()).y / 2) / textureSize;
-
     visibleArea.width  = (target.getView().getSize()).x / textureSize;
     visibleArea.height = (target.getView().getSize()).y / textureSize;
 
@@ -53,7 +52,7 @@ void RhA::CTerrain::update(sf::RenderTarget& target){
     if(visibleArea.top > arrayID.size() - visibleArea.height)
         visibleArea.top = arrayID.size() - visibleArea.height;
 
-    manager.update(visibleArea);
+    manager.update(visibleArea, dt);
 }
 void RhA::CTerrain::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     for(int y = visibleArea.top; y < visibleArea.top + visibleArea.height; ++y){
@@ -62,10 +61,10 @@ void RhA::CTerrain::draw(sf::RenderTarget& target, sf::RenderStates states) cons
         }
     }
 }
+
 void RhA::CTerrain::drawObjects(sf::RenderTarget& target){
     manager.draw(target);
 }
-
 
 void RhA::CTerrain::checkCollision(sf::FloatRect collisionBox){
     manager.checkCollision(collisionBox);

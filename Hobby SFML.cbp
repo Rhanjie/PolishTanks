@@ -55,8 +55,6 @@
 		<Unit filename="RhA.Packet/Effects/Particles/FogEmitter.hpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/ParticleEmitter.hpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/ParticlesManager.hpp" />
-		<Unit filename="RhA.Packet/System/ConstStepLoop.cpp" />
-		<Unit filename="RhA.Packet/System/ConstStepLoop.hpp" />
 		<Unit filename="RhA.Packet/System/GameBody.cpp" />
 		<Unit filename="RhA.Packet/System/GameManager.cpp" />
 		<Unit filename="RhA.Packet/System/GameManager.hpp" />
@@ -64,6 +62,8 @@
 		<Unit filename="RhA.Packet/System/LibrariesIncluding.hpp" />
 		<Unit filename="RhA.Packet/System/LoaderTextures.cpp" />
 		<Unit filename="RhA.Packet/System/LoaderTextures.hpp" />
+		<Unit filename="RhA.Packet/System/TimeManager.cpp" />
+		<Unit filename="RhA.Packet/System/TimeManager.hpp" />
 		<Unit filename="RhA.Packet/System/main.cpp" />
 		<Unit filename="RhA.Packet/Terrain/Object.cpp" />
 		<Unit filename="RhA.Packet/Terrain/Object.hpp" />

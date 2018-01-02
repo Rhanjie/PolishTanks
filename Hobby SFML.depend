@@ -544,21 +544,21 @@
 1513071998 source:c:\users\st04\pictures\marcin dyla\programowanie\c++ projects\hobby sfml\rha.packet\effects\particles\fogemitter.cpp
 	"FogEmitter.hpp"
 
-1514216104 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\playerupdate.cpp
+1514571035 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\playerupdate.cpp
 	"Player.hpp"
 
-1514223202 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\player.hpp
+1514560714 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\player.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/LoaderTextures.hpp"
 	"TankModules/Turret.hpp"
 	"Status.hpp"
 
-1512419387 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\librariesincluding.hpp
+1514550765 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\librariesincluding.hpp
 	<iostream>
 	<fstream>
+	<cstdio>
 	<cmath>
 	<map>
-	<cstdio>
 	<SFML/Graphics.hpp>
 
 1512419387 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\loadertextures.hpp
@@ -575,36 +575,37 @@
 1512419387 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\status.cpp
 	"Status.hpp"
 
-1514218308 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\effects\particles\fogemitter.cpp
+1514920522 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\effects\particles\fogemitter.cpp
 	"FogEmitter.hpp"
 
-1513898415 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\effects\particles\fogemitter.hpp
+1514920420 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\effects\particles\fogemitter.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/Helpful.hpp"
 	"ParticlesManager.hpp"
 	"ParticleEmitter.hpp"
 
-1513102770 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\effects\particles\particlesmanager.hpp
+1514920302 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\effects\particles\particlesmanager.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/Helpful.hpp"
 
-1512419387 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\effects\particles\particleemitter.hpp
+1514682011 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\effects\particles\particleemitter.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/Helpful.hpp"
 	"ParticlesManager.hpp"
 
-1512419387 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\conststeploop.cpp
+1514550251 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\conststeploop.cpp
 	"ConstStepLoop.hpp"
+	<string>
 
-1512419387 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\conststeploop.hpp
+1514550756 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\conststeploop.hpp
 	"LibrariesIncluding.hpp"
 
-1514238104 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\gamebody.cpp
+1514920294 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\gamebody.cpp
 	"GameManager.hpp"
 
-1512419387 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\gamemanager.hpp
+1514680687 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\gamemanager.hpp
 	"LibrariesIncluding.hpp"
-	"ConstStepLoop.hpp"
+	"TimeManager.hpp"
 	"LoaderTextures.hpp"
 	"Character/Status.hpp"
 	"Character/Player.hpp"
@@ -613,24 +614,24 @@
 	"Effects/Particles/ParticlesManager.hpp"
 	"Effects/Particles/FogEmitter.hpp"
 
-1514218898 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\terrain.hpp
+1514565220 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\terrain.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/LoaderTextures.hpp"
 	"System/Helpful.hpp"
 	"ObjectManager.hpp"
 
-1514222569 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\objectmanager.hpp
+1514565246 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\objectmanager.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/LoaderTextures.hpp"
 	"System/Helpful.hpp"
 	"Terrain/Object.hpp"
 
-1512419387 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\object.hpp
+1514565314 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\object.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/LoaderTextures.hpp"
 	"System/Helpful.hpp"
 
-1512419387 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\gamemanager.cpp
+1514903379 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\gamemanager.cpp
 	"GameManager.hpp"
 
 1513872299 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\loadertextures.cpp
@@ -639,13 +640,13 @@
 1514210768 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\main.cpp
 	"GameManager.hpp"
 
-1513894252 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\object.cpp
+1514648640 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\object.cpp
 	"Object.hpp"
 
-1514222569 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\objectmanager.cpp
+1514680479 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\objectmanager.cpp
 	"ObjectManager.hpp"
 
-1514222992 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\terrain.cpp
+1514907233 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\terrain\terrain.cpp
 	"Terrain.hpp"
 
 1490197868 c:\users\rhanjie\desktop\programowanie\1. c++ projects\sfml-2.4.2\include\sfml\graphics.hpp
@@ -1036,7 +1037,7 @@
 	<string>
 	<vector>
 
-1514124185 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\player.cpp
+1514904044 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\player.cpp
 	"Player.hpp"
 
 1513104148 c:\users\rhanjie\desktop\programowanie\1. c++ projects\sfml-2.4.2 cb\include\sfml\graphics.hpp
@@ -1427,10 +1428,16 @@
 	<string>
 	<vector>
 
-1514219261 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\tankmodules\turret.hpp
+1514905045 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\tankmodules\turret.hpp
 	"System/LibrariesIncluding.hpp"
 	"System/LoaderTextures.hpp"
 
-1514219331 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\tankmodules\turret.cpp
+1514919814 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\character\tankmodules\turret.cpp
 	"Turret.hpp"
+
+1514680588 c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\timemanager.hpp
+	"LibrariesIncluding.hpp"
+
+1514680744 source:c:\users\rhanjie\desktop\programowanie\1. c++ projects\polish tanks\polishtanks\rha.packet\system\timemanager.cpp
+	"TimeManager.hpp"
 

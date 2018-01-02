@@ -12,10 +12,10 @@ namespace RhA{
          CFogEmitter(sf::Texture& texture, int pAmount);
          ~CFogEmitter();
 
-         void addParticle(sf::Vector2f position);
-         void addParticles(int amount, sf::Vector2f position);
+         void addParticle(sf::Vector2f position, float scale);
+         void addParticles(int amount, sf::Vector2f position, float scale);
 
-         virtual void update();
+         virtual void update(float dt);
          virtual void draw(sf::RenderTarget& target);
 
         private:
