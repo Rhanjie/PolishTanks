@@ -9,10 +9,10 @@ namespace RhA{
     class CTerrain: public sf::Drawable{
         public:
          void generate(sf::RenderTarget& target, sf::Vector2i size, int textureSize);
-         void checkCollision(sf::FloatRect collisionBox);
-
          void update(sf::RenderTarget& target, float dt);
          void drawObjects(sf::RenderTarget& target);
+
+         void checkCollision(RhA::CPerson &person);
 
          inline sf::Vector2f getSize(){return sf::Vector2f(arrayID.size(), arrayID[0].size());}
 

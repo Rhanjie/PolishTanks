@@ -4,24 +4,30 @@
 #include "System/LibrariesIncluding.hpp"
 #include "System/LoaderTextures.hpp"
 #include "TankModules/Turret.hpp"
+#include "TankModules/Body.hpp"
 #include "Status.hpp"
 
 namespace RhA{
-    class CPlayer : public CStats{
+    class CPerson: public CStats{
         public:
-         void create(sf::Vector2f position, float maxSpeed, float velRotation, sf::Texture& textureBody, sf::Texture& textureTurret);
+         virtual inline sf::Vector2f getPosition() = 0;
+         virtual inline sf::FloatRect getCollisionBox() = 0;
+    };
+
+    class CPlayer: public CPerson{
+        public:
+         void create(sf::Vector2f position, float maxSpeed, float rotationSpeed, sf::Texture& textureBody, sf::Texture& textureTurret);
 
          void update(sf::Vector2f mousePosition, float dt);
          void render(sf::RenderTarget& target);
 
-         inline sf::Vector2f getPosition(){return spriteBody.getPosition();}
+         virtual inline sf::Vector2f getPosition(){return (body.getSprite()).getPosition();}
+         virtual inline sf::FloatRect getCollisionBox(){return (body.getSprite()).getGlobalBounds();}
 
         private:
-         void serveMoving(float dt); //TODO: Delete
          virtual void draw(sf::RenderTarget& target, sf::RenderStates stated) const;
 
-         sf::Sprite spriteBody;
-         sf::Sprite shadowBody;
+         RhA::CBody body;
          RhA::CTurret turret;
 
          float maxSpeed, currentSpeed = 0;

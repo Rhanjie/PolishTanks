@@ -13,8 +13,8 @@ namespace RhA{
 
 
         protected:
-         int health;
-         int maxHealth;
+         int health = 200;
+         int maxHealth = 200;
 
          int money;
 

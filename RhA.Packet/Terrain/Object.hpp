@@ -8,13 +8,18 @@
 namespace RhA{
     class CObject{ // <- Abstract class
         public:
-         sf::Sprite sprite;
-         sf::Sprite shadow;
-
-         virtual void update(float dt)=0;
-         void setPosition(sf::Vector2f position, int shadowDistance=15);
+         void setPosition(sf::Vector2f position, int shadowDistance = 15);
          void rotate(float angle);
+
+         virtual void update(float dt) = 0;
          void draw(sf::RenderTarget& target, bool main = true) const;
+
+         virtual sf::FloatRect getCollisionBox() = 0;
+
+         sf::Sprite sprite, shadow;
+         sf::RectangleShape debug;
+
+         bool isRemoving = false;
 
         protected:
          CObject(){};
@@ -27,10 +32,12 @@ namespace RhA{
          CTreeObject(sf::Texture& texture, float rSpeed, bool isCollision);
 
          virtual void update(float dt);
+         virtual sf::FloatRect getCollisionBox();
 
         private:
-         float angle = 0, wind = 0.020+float(rand()%10)/10000.0f;
+         sf::FloatRect collisionBox;
 
+         float angle = 0, wind = 0.020 + float(rand()%10) / 10000.0f;
     };
 }
 

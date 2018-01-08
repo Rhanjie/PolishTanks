@@ -35,6 +35,7 @@ bool RhA::CLoaderResources::loadResources(){
     mTexturesNames["terrain/objects/tree"] = 3;
     mTexturesNames["fog"] = 1;
     mTexturesNames["bullet"] = 1;
+    mTexturesNames["gui/hp_icon"] = 1;
 
 
     for(auto &it : mTexturesNames){

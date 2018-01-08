@@ -46,15 +46,18 @@
 		</Linker>
 		<Unit filename="RhA.Packet/Character/Player.cpp" />
 		<Unit filename="RhA.Packet/Character/Player.hpp" />
-		<Unit filename="RhA.Packet/Character/PlayerUpdate.cpp" />
 		<Unit filename="RhA.Packet/Character/Status.cpp" />
 		<Unit filename="RhA.Packet/Character/Status.hpp" />
+		<Unit filename="RhA.Packet/Character/TankModules/Body.cpp" />
+		<Unit filename="RhA.Packet/Character/TankModules/Body.hpp" />
 		<Unit filename="RhA.Packet/Character/TankModules/Turret.cpp" />
 		<Unit filename="RhA.Packet/Character/TankModules/Turret.hpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/FogEmitter.cpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/FogEmitter.hpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/ParticleEmitter.hpp" />
 		<Unit filename="RhA.Packet/Effects/Particles/ParticlesManager.hpp" />
+		<Unit filename="RhA.Packet/Interface/HUD.cpp" />
+		<Unit filename="RhA.Packet/Interface/HUD.hpp" />
 		<Unit filename="RhA.Packet/System/GameBody.cpp" />
 		<Unit filename="RhA.Packet/System/GameManager.cpp" />
 		<Unit filename="RhA.Packet/System/GameManager.hpp" />

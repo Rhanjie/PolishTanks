@@ -47,7 +47,7 @@ void RhA::CTurret::update(sf::Vector2f position, sf::Vector2f mousePosition, flo
         velX =  sin(((bullet->getRotation() + 90) * M_PI) / 180.0f);
         velY = -cos(((bullet->getRotation() + 90) * M_PI) / 180.0f);
 
-        bullet->setSize(sf::Vector2f((bullet->getSize()).x + 1, 4));
+        bullet->setSize(sf::Vector2f((bullet->getSize()).x + 10 * (dt * 100) , 4));
         bullet->move(velX * bulletSpeed  * (dt * 100), velY * bulletSpeed  * (dt * 100));
 
         if(bullet->getPosition().x - sprite.getPosition().x <= -todohelper || bullet->getPosition().x - sprite.getPosition().x >= todohelper
@@ -71,8 +71,10 @@ void RhA::CTurret::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(sprite);
 }
 
-sf::FloatRect RhA::CTurret::getCollisionBox(){
-    //return bullet.getGlobalBounds();
-    return vBullets[vBullets.size()-1].getGlobalBounds(); //TODO
+sf::FloatRect RhA::CTurret::getCollisionBox(unsigned int i){
+    if(i >= vBullets.size())
+        return sf::FloatRect(0, 0, 0, 0);
+
+    return vBullets[i].getGlobalBounds();
 }
 

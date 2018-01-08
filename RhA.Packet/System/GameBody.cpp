@@ -10,8 +10,7 @@ void RhA::CGameManager::bodyGameplay(){
     const int TEXTURE_SIZE = 128;
 
     RhA::CTerrain terrain;
-     //terrain.generate(window, sf::Vector2i(200, 200), TEXTURE_SIZE);
-     terrain.generate(window, sf::Vector2i(30, 30), TEXTURE_SIZE);
+    terrain.generate(window, sf::Vector2i(100, 100), TEXTURE_SIZE);
 
     //TODO: Add shop with tank modules
     sf::Texture body = RhA::CLoaderResources::get().getTexture("tankBody1");
@@ -20,8 +19,10 @@ void RhA::CGameManager::bodyGameplay(){
     sf::Vector2f spawnPosition = sf::Vector2f(terrain.getSize().x*TEXTURE_SIZE/2, terrain.getSize().y*TEXTURE_SIZE/2);
 
     RhA::CPlayer player;
-     player.create(spawnPosition, 200.0f, 60.0f, body, turret);
-     player.setStatus(CStats::HEALTH, 100);
+    player.create(spawnPosition, 200.0f, 60.0f, body, turret);
+
+    RhA::CHud hud(window.getSize());
+    //...
 
 
     //TODO: Add weather system
@@ -36,15 +37,15 @@ void RhA::CGameManager::bodyGameplay(){
 
     sf::Vector2f mousePosition;
     while(gameplayType == GAME){
-        timeManager.update();
+        timeManager.update(window.getSize());
 
         while(window.pollEvent(event)){
-            if(event.type == sf::Event::Closed)
+            if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
                 gameplayType = END;
         }
+        hud.colorizeHpIcon(player.getStatus(CStats::HEALTH), player.getStatus(CStats::MAXHEALTH));
 
-        if(gameplayType == END) //DEBUG
-            break;
+        if(gameplayType == END) break;
 
         window.setView(camera);{
             mousePosition = window.mapPixelToCoords(sf::Mouse::getPosition(window));
@@ -59,8 +60,7 @@ void RhA::CGameManager::bodyGameplay(){
                 fogEmitter.addParticle(fogSpawnPos, scale);
             }
 
-
-            //terrain.checkCollision(player.turret.getCollisionBox()); //Only debug code, will be fixed in next commit
+            terrain.checkCollision(player);
         } window.setView(window.getDefaultView());
 
         player.update(mousePosition, timeManager.getDeltaTime());
@@ -80,6 +80,7 @@ void RhA::CGameManager::bodyGameplay(){
             window.setView(window.getDefaultView());
 
             window.draw(fogEffect);
+            window.draw(hud);
             window.draw(timeManager);
 
             window.display();

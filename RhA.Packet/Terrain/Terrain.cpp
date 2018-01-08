@@ -66,6 +66,8 @@ void RhA::CTerrain::drawObjects(sf::RenderTarget& target){
     manager.draw(target);
 }
 
-void RhA::CTerrain::checkCollision(sf::FloatRect collisionBox){
-    manager.checkCollision(collisionBox);
+void RhA::CTerrain::checkCollision(RhA::CPerson &person){
+    manager.checkCollision(person);
 }
+
+

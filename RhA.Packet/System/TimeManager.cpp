@@ -4,15 +4,16 @@ RhA::CTimeManager::CTimeManager(){
     font.loadFromFile("media/main.ttf");
 
     text.setFont(font); //TODO: RhA::CLoaderResources::get().getFont(fontID);
-    text.setCharacterSize(24);
+    text.setCharacterSize(20);
 }
 
-void RhA::CTimeManager::update(){
+void RhA::CTimeManager::update(sf::Vector2u windowSize){
     if(fpsClock.getElapsedTime().asSeconds() >= 1.0f){
         fps = frame; frame = 0;
         fpsClock.restart();
 
-        text.setString("FPS: " + std::to_string(fps) + "\nDelta time: " + std::to_string(dt));
+        text.setPosition(1, windowSize.y - 50);
+        text.setString(std::to_string(fps) + "\n" + std::to_string(dt));
     }
 
     frame++;

@@ -8,7 +8,7 @@ namespace RhA{
         public:
          CTimeManager();
 
-         void update();
+         void update(sf::Vector2u windowSize);
          void restart();
 
          inline float getDeltaTime(){return dt;}
@@ -17,9 +17,8 @@ namespace RhA{
          virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
          sf::Clock deltaClock, fpsClock;
-         float dt = 0;
-
          unsigned int frame = 0, fps = 0;
+         float dt = 0;
 
          sf::Font font;
          sf::Text text;

@@ -4,6 +4,7 @@
 #include "System/LibrariesIncluding.hpp"
 #include "System/LoaderTextures.hpp"
 #include "System/Helpful.hpp"
+#include "Character/Player.hpp"
 
 #include "Terrain/Object.hpp"
 
@@ -14,7 +15,7 @@ namespace RhA{
          void update(sf::FloatRect visibleArea, float dt);
          void draw(sf::RenderTarget& target);
 
-         void checkCollision(sf::FloatRect collisionBox);
+         void checkCollision(RhA::CPerson &person);
 
          inline RhA::CObject* getLastObject(){
             return vObjects[vObjects.size()-1];

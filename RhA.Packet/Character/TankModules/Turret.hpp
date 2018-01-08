@@ -11,11 +11,10 @@ namespace RhA{
          void update(sf::Vector2f position, sf::Vector2f mousePosition, float dt);
          void shoot(sf::Mouse::Button button);
 
-         sf::FloatRect getCollisionBox();
+         sf::FloatRect getCollisionBox(unsigned int i);
 
         private:
          virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-
 
          sf::Sprite sprite;
          sf::Sprite shadow;
@@ -23,7 +22,6 @@ namespace RhA{
 
          sf::Clock clock;
          sf::Time reloadTime;
-         //sf::RectangleShape bullet; ///TODO: Change bullet system
          std::vector<sf::RectangleShape>vBullets;
 
          const float bulletSpeed = 12.0f;
