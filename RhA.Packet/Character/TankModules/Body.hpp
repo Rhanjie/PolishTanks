@@ -10,16 +10,17 @@ namespace RhA{
          void init(sf::Vector2f position, float maxSpeed, float rotationSpeed, sf::Texture& texture);
          void update(float dt);
 
-         sf::Sprite getSprite(); //only copied object
+         sf::Sprite getSprite(); //get copied object
+
+         float maxSpeed = 0;
+         float currentSpeed = 0;
+         float rotationSpeed = 0;
 
         private:
          virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
          sf::Sprite sprite;
          sf::Sprite shadow;
-
-         float maxSpeed, currentSpeed = 0;
-         float rotationSpeed;
     };
 }
 

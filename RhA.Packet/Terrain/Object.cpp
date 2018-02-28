@@ -30,10 +30,10 @@ RhA::CTreeObject::CTreeObject(sf::Texture& texture, float rSpeed, bool isCollisi
     float r = rand()%80;
     float g = rand()%80;
     float b = rand()%80;
-    sprite.setColor(sf::Color(255 - r, 255 - g, 255 - b, 255));
+    sprite.setColor(sf::Color(255 - r, 255 - g, 255 - b, cAlpha));
 
     shadow = sprite;
-    shadow.setColor(sf::Color(0, 0, 0, 125));
+    shadow.setColor(sf::Color(0, 0, 0, cAlphaShadow));
 }
 
 void RhA::CTreeObject::update(float dt){

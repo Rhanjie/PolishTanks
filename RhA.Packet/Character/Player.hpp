@@ -5,16 +5,10 @@
 #include "System/LoaderTextures.hpp"
 #include "TankModules/Turret.hpp"
 #include "TankModules/Body.hpp"
-#include "Status.hpp"
+#include "Person.hpp"
 
 namespace RhA{
-    class CPerson: public CStats{
-        public:
-         virtual inline sf::Vector2f getPosition() = 0;
-         virtual inline sf::FloatRect getCollisionBox() = 0;
-    };
-
-    class CPlayer: public CPerson{
+    class CPlayer: public sf::Drawable, public CPerson{
         public:
          void create(sf::Vector2f position, float maxSpeed, float rotationSpeed, sf::Texture& textureBody, sf::Texture& textureTurret);
 
@@ -24,14 +18,11 @@ namespace RhA{
          virtual inline sf::Vector2f getPosition(){return (body.getSprite()).getPosition();}
          virtual inline sf::FloatRect getCollisionBox(){return (body.getSprite()).getGlobalBounds();}
 
-        private:
-         virtual void draw(sf::RenderTarget& target, sf::RenderStates stated) const;
-
          RhA::CBody body;
          RhA::CTurret turret;
 
-         float maxSpeed, currentSpeed = 0;
-         float velRotation;
+        private:
+         virtual void draw(sf::RenderTarget& target, sf::RenderStates stated) const;
     };
 }
 

@@ -15,7 +15,7 @@ namespace RhA{
          void update(sf::FloatRect visibleArea, float dt);
          void draw(sf::RenderTarget& target);
 
-         void checkCollision(RhA::CPerson &person);
+         void checkCollision(RhA::CPlayer &person);
 
          inline RhA::CObject* getLastObject(){
             return vObjects[vObjects.size()-1];
@@ -24,6 +24,9 @@ namespace RhA{
         private:
          std::vector<RhA::CObject*>vObjects;
          sf::FloatRect visibleArea;
+
+         sf::Color color;
+         float speed = 3;
     };
 }
 

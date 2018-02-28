@@ -12,22 +12,30 @@ void RhA::CObjectManager::update(sf::FloatRect visibleArea, float dt){
     visibleArea.height *= 128;
 
     this->visibleArea = visibleArea;
-
-    sf::Color color;
     for(int i = 0; i < vObjects.size(); ++i){
-        if(vObjects[i]->sprite.getGlobalBounds().intersects(this->visibleArea)){ //TODO - Change method who support rotating objects
+
+        ///TODO: Rotating objects not supported
+        if(vObjects[i]->sprite.getGlobalBounds().intersects(this->visibleArea)){
             vObjects[i]->update(dt);
 
             if(vObjects[i]->isRemoving){
                 color = (vObjects[i]->sprite).getColor();
-                color.a -= 0.1;
+                vObjects[i]->cAlpha -= speed * (dt * 100);
+
+                color.a = vObjects[i]->cAlpha;
                 vObjects[i]->sprite.setColor(color);
 
+
                 color = (vObjects[i]->shadow).getColor();
-                color.a -= 1 * dt;
+                vObjects[i]->cAlphaShadow -= speed * (dt * 100);
+
+                if(vObjects[i]->cAlphaShadow < 0)
+                    vObjects[i]->cAlphaShadow = 0;
+
+                color.a = vObjects[i]->cAlphaShadow;
                 vObjects[i]->shadow.setColor(color);
 
-                if((vObjects[i]->sprite).getColor().a <= 0){
+                if(vObjects[i]->cAlpha <= 0){
                     vObjects.erase(vObjects.begin()+i);
 
                     i--;
@@ -48,14 +56,15 @@ void RhA::CObjectManager::draw(sf::RenderTarget& target){
     }
 }
 
-void RhA::CObjectManager::checkCollision(RhA::CPerson &person){ //RhA::CPerson &person
+void RhA::CObjectManager::checkCollision(RhA::CPlayer &person){ //RhA::CPerson &person
     for(int i = 0; i < vObjects.size(); ++i){
         if(vObjects[i]->sprite.getGlobalBounds().intersects(visibleArea)){
             if(vObjects[i]->isRemoving == false){
                 if(person.getCollisionBox().intersects(vObjects[i]->getCollisionBox())){
                     vObjects[i]->isRemoving = true;
 
-                    person.setStatus(RhA::CStats::HEALTH, -5);
+                    person.body.currentSpeed /= 3;
+                    person.setStatus(HEALTH, -5);
                 }
             }
         }

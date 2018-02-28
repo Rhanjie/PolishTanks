@@ -10,9 +10,9 @@ void RhA::CGameManager::bodyGameplay(){
     const int TEXTURE_SIZE = 128;
 
     RhA::CTerrain terrain;
-    terrain.generate(window, sf::Vector2i(100, 100), TEXTURE_SIZE);
+    terrain.generate(window, sf::Vector2i(30, 30), TEXTURE_SIZE);
 
-    //TODO: Add shop with tank modules
+    ///TODO: Add shop with tank modules
     sf::Texture body = RhA::CLoaderResources::get().getTexture("tankBody1");
     sf::Texture turret = RhA::CLoaderResources::get().getTexture("tankTurret1");
 
@@ -22,16 +22,14 @@ void RhA::CGameManager::bodyGameplay(){
     player.create(spawnPosition, 200.0f, 60.0f, body, turret);
 
     RhA::CHud hud(window.getSize());
-    //...
 
-
-    //TODO: Add weather system
+    ///TODO: Add weather system
     sf::RectangleShape fogEffect = sf::RectangleShape((sf::Vector2f)window.getSize());
     fogEffect.setFillColor(sf::Color(255, 255, 255, 75));
 
     sf::Vector2f fogSpawnPos = sf::Vector2f(0.0F, 0.0F);
-    RhA::CFogEmitter fogEmitter = RhA::CFogEmitter(RhA::CLoaderResources::get().getTexture("fog1"), 60); //TODO: Improve fog system when camera_scale > 1.0
-
+    ///TODO: Improve fog system when camera_scale > 1.0
+    RhA::CFogEmitter fogEmitter = RhA::CFogEmitter(RhA::CLoaderResources::get().getTexture("fog1"), 60);
     const float scale = 1.5;
     camera.zoom(scale);
 
@@ -40,12 +38,21 @@ void RhA::CGameManager::bodyGameplay(){
         timeManager.update(window.getSize());
 
         while(window.pollEvent(event)){
-            if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
-                gameplayType = END;
-        }
-        hud.colorizeHpIcon(player.getStatus(CStats::HEALTH), player.getStatus(CStats::MAXHEALTH));
+            if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape){
+                gameplayType = CLOSE;
 
-        if(gameplayType == END) break;
+                return;
+            }
+        }
+
+        ///TODO: "Mission failed"
+        if(player.getStatus(HEALTH) <= 0){
+            gameplayType = CLOSE;
+
+            return;
+        }
+
+        hud.colorizeHpIcon(player.getStatus(HEALTH), player.getStatus(MAXHEALTH));
 
         window.setView(camera);{
             mousePosition = window.mapPixelToCoords(sf::Mouse::getPosition(window));

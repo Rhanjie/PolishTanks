@@ -4,7 +4,7 @@
 #include "LibrariesIncluding.hpp"
  #include "TimeManager.hpp"
  #include "LoaderTextures.hpp"
- #include "Character/Status.hpp"
+ #include "Character/Person.hpp"
  #include "Character/Player.hpp"
  #include "Terrain/Terrain.hpp"
  #include "Effects/Particles/ParticleEmitter.hpp"
@@ -15,7 +15,7 @@
 
 namespace RhA{
     class CGameManager{
-        enum eGameplayType{MENU, GAME, END};
+        enum eGameplayType{MENU, GAME, CLOSE};
 
         public:
          CGameManager(std::string title, sf::Vector2i windowSize, sf::ContextSettings& settings);

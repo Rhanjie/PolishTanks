@@ -2,6 +2,7 @@
 #define CONSTSTEPLOOP_HPP_INCLUDED
 
 #include "LibrariesIncluding.hpp"
+#include "Helpful.hpp"
 
 namespace RhA{
     class CTimeManager: public sf::Drawable{

@@ -12,7 +12,7 @@ namespace RhA{
          void update(sf::RenderTarget& target, float dt);
          void drawObjects(sf::RenderTarget& target);
 
-         void checkCollision(RhA::CPerson &person);
+         void checkCollision(RhA::CPlayer &person);
 
          inline sf::Vector2f getSize(){return sf::Vector2f(arrayID.size(), arrayID[0].size());}
 

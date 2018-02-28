@@ -21,9 +21,10 @@ void RhA::CTurret::shoot(sf::Mouse::Button button){
             vBullets.push_back(sf::RectangleShape());
             vBullets[vBullets.size()-1].setPosition(sprite.getPosition());
             vBullets[vBullets.size()-1].setRotation(sprite.getRotation());
-            vBullets[vBullets.size()-1].setSize(sf::Vector2f(100, 4));
 
-            vBullets[vBullets.size()-1].setOrigin(-sprite.getGlobalBounds().width/2, 2); //-Gun length, gun width
+            vBullets[vBullets.size()-1].setSize(sf::Vector2f(100, 4));
+            vBullets[vBullets.size()-1].setOrigin(-sprite.getGlobalBounds().width/2, 2); // -Gun length/2, gun width/2
+
             vBullets[vBullets.size()-1].setTexture(&RhA::CLoaderResources::get().getTexture("bullet1"));
             vBullets[vBullets.size()-1].setFillColor(sf::Color(255, 255, 255, 255));
 
@@ -50,6 +51,7 @@ void RhA::CTurret::update(sf::Vector2f position, sf::Vector2f mousePosition, flo
         bullet->setSize(sf::Vector2f((bullet->getSize()).x + 10 * (dt * 100) , 4));
         bullet->move(velX * bulletSpeed  * (dt * 100), velY * bulletSpeed  * (dt * 100));
 
+        ///TODO: Just debug code, will change in the next commit
         if(bullet->getPosition().x - sprite.getPosition().x <= -todohelper || bullet->getPosition().x - sprite.getPosition().x >= todohelper
             || bullet->getPosition().y - sprite.getPosition().y <= -todohelper || bullet->getPosition().y - sprite.getPosition().y >= todohelper)
             bullet = vBullets.erase(bullet);

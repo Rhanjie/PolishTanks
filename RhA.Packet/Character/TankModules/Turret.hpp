@@ -5,7 +5,7 @@
 #include "System/LoaderTextures.hpp"
 
 namespace RhA{
-    class CTurret: public sf::Drawable{ //and gun
+    class CTurret: public sf::Drawable{
         public:
          void init(sf::Vector2f position, sf::Time reloadTime, sf::Texture& texture);
          void update(sf::Vector2f position, sf::Vector2f mousePosition, float dt);

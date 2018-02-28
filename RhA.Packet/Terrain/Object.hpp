@@ -20,6 +20,8 @@ namespace RhA{
          sf::RectangleShape debug;
 
          bool isRemoving = false;
+         float cAlpha = 255;
+         float cAlphaShadow = 150;
 
         protected:
          CObject(){};

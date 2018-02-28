@@ -14,7 +14,7 @@ RhA::CGameManager::CGameManager(std::string title, sf::Vector2i windowSize, sf::
     if(!RhA::CLoaderResources::get().isLoaded()){
         std::cout << "[!] Resources can't be loaded!\n";
 
-        gameplayType = END; return;
+        gameplayType = CLOSE; return;
     } else std::cout << "[O] Loaded without errors!\n\n";
 
     std::cout << "[O] Game created.\n";
@@ -32,8 +32,8 @@ void RhA::CGameManager::run(){
             case GAME:
              bodyGameplay(); break;
 
-            case END:
-             window.close(); break;
+            default:
+             window.close(); return;
         }
     }
 }

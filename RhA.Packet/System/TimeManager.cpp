@@ -3,7 +3,8 @@
 RhA::CTimeManager::CTimeManager(){
     font.loadFromFile("media/main.ttf");
 
-    text.setFont(font); //TODO: RhA::CLoaderResources::get().getFont(fontID);
+    ///TODO: Font Manager
+    text.setFont(font);
     text.setCharacterSize(20);
 }
 
@@ -13,7 +14,7 @@ void RhA::CTimeManager::update(sf::Vector2u windowSize){
         fpsClock.restart();
 
         text.setPosition(1, windowSize.y - 50);
-        text.setString(std::to_string(fps) + "\n" + std::to_string(dt));
+        text.setString(RhA::toString(fps) + "\n" + RhA::toString(dt)); //rip std::to_string
     }
 
     frame++;
@@ -28,5 +29,3 @@ void RhA::CTimeManager::restart(){
 void RhA::CTimeManager::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     target.draw(text);
 }
-
-

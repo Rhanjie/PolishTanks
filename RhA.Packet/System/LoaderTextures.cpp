@@ -28,7 +28,8 @@ bool RhA::CLoaderResources::loadResources(){
         prefix += textLine.
     }*/
 
-    mTexturesNames["error"] = 1; // todo - load data from file
+    ///TODO - Load data from file
+    mTexturesNames["error"] = 1;
     mTexturesNames["tankBody"] = 1;
     mTexturesNames["tankTurret"] = 1;
     mTexturesNames["terrain/grass"] = 7;
