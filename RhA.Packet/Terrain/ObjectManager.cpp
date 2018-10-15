@@ -63,7 +63,7 @@ void RhA::CObjectManager::checkCollision(RhA::CPlayer &person){ //RhA::CPerson &
                 if(person.getCollisionBox().intersects(vObjects[i]->getCollisionBox())){
                     vObjects[i]->isRemoving = true;
 
-                    person.body.currentSpeed /= 3;
+                    //person.body.currentSpeed /= 3;
                     person.setStatus(HEALTH, -5);
                 }
             }

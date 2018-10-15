@@ -10,7 +10,7 @@ void RhA::CGameManager::bodyGameplay(){
     const int TEXTURE_SIZE = 128;
 
     RhA::CTerrain terrain;
-    terrain.generate(window, sf::Vector2i(30, 30), TEXTURE_SIZE);
+    terrain.generate(window, sf::Vector2i(100, 100), TEXTURE_SIZE);
 
     ///TODO: Add shop with tank modules
     sf::Texture body = RhA::CLoaderResources::get().getTexture("tankBody1");
@@ -30,8 +30,8 @@ void RhA::CGameManager::bodyGameplay(){
     sf::Vector2f fogSpawnPos = sf::Vector2f(0.0F, 0.0F);
     ///TODO: Improve fog system when camera_scale > 1.0
     RhA::CFogEmitter fogEmitter = RhA::CFogEmitter(RhA::CLoaderResources::get().getTexture("fog1"), 60);
-    const float scale = 1.5;
-    camera.zoom(scale);
+    float zoom = 1.5;
+    camera.zoom(zoom);
 
     sf::Vector2f mousePosition;
     while(gameplayType == GAME){
@@ -42,6 +42,20 @@ void RhA::CGameManager::bodyGameplay(){
                 gameplayType = CLOSE;
 
                 return;
+            }
+
+            if (event.type == sf::Event::MouseWheelScrolled) {
+                if(event.mouseWheelScroll.wheel == sf::Mouse::VerticalWheel) {
+                    if ((int)event.mouseWheelScroll.delta == 1 && zoom > 1.0) {
+                        camera.zoom(0.9);
+                        zoom -= 0.1;
+                    }
+                    else if ((int)event.mouseWheelScroll.delta == -1 && zoom < 2.0) {
+                        camera.zoom(1.1);
+                        zoom += 0.1;
+                    }
+
+                }
             }
         }
 
@@ -64,7 +78,7 @@ void RhA::CGameManager::bodyGameplay(){
                     player.getPosition().y + (rand()%(int)((window.getView()).getSize().x * 2)) - (window.getView()).getSize().y
                 );
 
-                fogEmitter.addParticle(fogSpawnPos, scale);
+                fogEmitter.addParticle(fogSpawnPos, 1.5);
             }
 
             terrain.checkCollision(player);
