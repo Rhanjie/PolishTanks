@@ -1,12 +1,12 @@
 #ifndef OBJECTMANAGER_HPP_INCLUDED
 #define OBJECTMANAGER_HPP_INCLUDED
 
-#include "System/LibrariesIncluding.hpp"
-#include "System/LoaderTextures.hpp"
-#include "System/Helpful.hpp"
-#include "Character/Player.hpp"
+#include "../System/LibrariesIncluding.hpp"
+#include "../System/LoaderTextures.hpp"
+#include "../System/Helpful.hpp"
+#include "../Character/Player.hpp"
 
-#include "Terrain/Object.hpp"
+#include "../Terrain/Object.hpp"
 
 namespace RhA{
     class CObjectManager{

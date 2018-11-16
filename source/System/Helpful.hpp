@@ -1,6 +1,6 @@
 #ifndef HELPFUL_HPP_INCLUDED
 #define HELPFUL_HPP_INCLUDED
-#include "System/LibrariesIncluding.hpp"
+#include "../System/LibrariesIncluding.hpp"
 #include <sstream>
 
 namespace RhA{

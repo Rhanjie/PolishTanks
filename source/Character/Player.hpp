@@ -1,8 +1,8 @@
 #ifndef PLAYER_HPP_INCLUDED
 #define PLAYER_HPP_INCLUDED
 
-#include "System/LibrariesIncluding.hpp"
-#include "System/LoaderTextures.hpp"
+#include "../System/LibrariesIncluding.hpp"
+#include "../System/LoaderTextures.hpp"
 #include "TankModules/Turret.hpp"
 #include "TankModules/Body.hpp"
 #include "Person.hpp"

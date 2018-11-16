@@ -1,8 +1,8 @@
 #ifndef TERRAIN_HPP_INCLUDED
 #define TERRAIN_HPP_INCLUDED
-#include "System/LibrariesIncluding.hpp"
-#include "System/LoaderTextures.hpp"
-#include "System/Helpful.hpp"
+#include "../System/LibrariesIncluding.hpp"
+#include "../System/LoaderTextures.hpp"
+#include "../System/Helpful.hpp"
 #include "ObjectManager.hpp"
 
 namespace RhA{

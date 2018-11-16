@@ -1,8 +1,8 @@
 #ifndef FOGEMITTER_HPP_INCLUDED
 #define FOGEMITTER_HPP_INCLUDED
 
-#include "System/LibrariesIncluding.hpp"
-#include "System/Helpful.hpp"
+#include "../../System/LibrariesIncluding.hpp"
+#include "../../System/Helpful.hpp"
 #include "ParticlesManager.hpp"
 #include "ParticleEmitter.hpp"
 

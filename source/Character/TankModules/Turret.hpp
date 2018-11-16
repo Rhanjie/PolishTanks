@@ -1,8 +1,8 @@
 #ifndef TURRET_HPP_INCLUDED
 #define TURRET_HPP_INCLUDED
 
-#include "System/LibrariesIncluding.hpp"
-#include "System/LoaderTextures.hpp"
+#include "../../System/LibrariesIncluding.hpp"
+#include "../../System/LoaderTextures.hpp"
 
 namespace RhA{
     class CTurret: public sf::Drawable{

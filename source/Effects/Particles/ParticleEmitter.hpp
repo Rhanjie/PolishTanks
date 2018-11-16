@@ -1,8 +1,8 @@
 #ifndef PARTICLEEMITTER_HPP_INCLUDED
 #define PARTICLEEMITTER_HPP_INCLUDED
 
-#include "System/LibrariesIncluding.hpp"
-#include "System/Helpful.hpp"
+#include "../../System/LibrariesIncluding.hpp"
+#include "../../System/Helpful.hpp"
 #include "ParticlesManager.hpp"
 
 namespace RhA{

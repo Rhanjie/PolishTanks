@@ -1,8 +1,8 @@
 #ifndef HUD_HPP_INCLUDED
 #define HUD_HPP_INCLUDED
 
-#include "System/LibrariesIncluding.hpp"
-#include "System/LoaderTextures.hpp"
+#include "../System/LibrariesIncluding.hpp"
+#include "../System/LoaderTextures.hpp"
 
 namespace RhA{
     class CHud: public sf::Drawable{

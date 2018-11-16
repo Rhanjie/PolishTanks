@@ -4,13 +4,13 @@
 #include "LibrariesIncluding.hpp"
  #include "TimeManager.hpp"
  #include "LoaderTextures.hpp"
- #include "Character/Person.hpp"
- #include "Character/Player.hpp"
- #include "Terrain/Terrain.hpp"
- #include "Effects/Particles/ParticleEmitter.hpp"
- #include "Effects/Particles/ParticlesManager.hpp"
- #include "Effects/Particles/FogEmitter.hpp"
- #include "Interface/HUD.hpp"
+ #include "../Character/Person.hpp"
+ #include "../Character/Player.hpp"
+ #include "../Terrain/Terrain.hpp"
+ #include "../Effects/Particles/ParticleEmitter.hpp"
+ #include "../Effects/Particles/ParticlesManager.hpp"
+ #include "../Effects/Particles/FogEmitter.hpp"
+ #include "../Interface/HUD.hpp"
 
 
 namespace RhA{

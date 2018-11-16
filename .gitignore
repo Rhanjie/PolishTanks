@@ -1,0 +1,5 @@
+/.idea
+/cmake-modules/Config.cmake
+/bin/*
+/cmake-build-debug/*
+/assets/logs/*

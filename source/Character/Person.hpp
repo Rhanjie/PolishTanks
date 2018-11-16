@@ -1,7 +1,7 @@
 #ifndef STATUS_HPP_INCLUDED
 #define STATUS_HPP_INCLUDED
 
-#include "System/LibrariesIncluding.hpp"
+#include "../System/LibrariesIncluding.hpp"
 
 namespace RhA{
     enum eStats{HEALTH, MAXHEALTH, MONEY};

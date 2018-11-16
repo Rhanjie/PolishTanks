@@ -1,8 +1,8 @@
 #ifndef PARTICLESMANAGER_HPP_INCLUDED
 #define PARTICLESMANAGER_HPP_INCLUDED
 
-#include "System/LibrariesIncluding.hpp"
-#include "System/Helpful.hpp"
+#include "../../System/LibrariesIncluding.hpp"
+#include "../../System/Helpful.hpp"
 
 namespace RhA{
     class CParticle{

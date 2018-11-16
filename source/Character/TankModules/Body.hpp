@@ -1,8 +1,8 @@
 #ifndef BODY_HPP_INCLUDED
 #define BODY_HPP_INCLUDED
 
-#include "System/LibrariesIncluding.hpp"
-#include "System/LoaderTextures.hpp"
+#include "../../System/LibrariesIncluding.hpp"
+#include "../../System/LoaderTextures.hpp"
 
 namespace RhA{
     class CBody: public sf::Drawable{

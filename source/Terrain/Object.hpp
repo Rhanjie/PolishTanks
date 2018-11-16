@@ -1,9 +1,9 @@
 #ifndef OBJECT_HPP_INCLUDED
 #define OBJECT_HPP_INCLUDED
 
-#include "System/LibrariesIncluding.hpp"
-#include "System/LoaderTextures.hpp"
-#include "System/Helpful.hpp"
+#include "../System/LibrariesIncluding.hpp"
+#include "../System/LoaderTextures.hpp"
+#include "../System/Helpful.hpp"
 
 namespace RhA{
     class CObject{ // <- Abstract class
